@@ -16,6 +16,11 @@ import org.eclipse.microprofile.config.inject.ConfigProperty;
 @Path("/hello")
 public class GreetingResource {
 
+    // tag::config[]
+    @Inject // <1>
+    Config config;
+    // end::config[]
+
     // tag::list[]
     @ConfigProperty(name = "greeting.suffix")
     List<String> suffixes;
@@ -53,5 +58,16 @@ public class GreetingResource {
         return message + suffixes.get(1);
     }
     // end::list[]
+
+    // tag::config[]
+    @GET
+    @Path("/config")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String helloConfig() {
+        config.getPropertyNames().forEach( p -> System.out.println(p)); // <2>
+
+        return config.getValue("greeting.message", String.class); // <3>
+    }
+    // end::config[]
 
 }
