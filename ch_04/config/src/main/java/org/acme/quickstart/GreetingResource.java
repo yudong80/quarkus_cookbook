@@ -31,6 +31,14 @@ public class GreetingResource {
                     defaultValue = "true") // <1>
     boolean upperCase;
     // end::optional[]
+
+    // tag::validation[]
+    @Min(1) // <1>
+    @Max(3) // <2>
+    @ConfigProperty(name = "greeting.repeat", defaultValue = "1")
+    int numberOfRepetitions;
+    // end::validation[]
+    
     // tag::message[]
     @ConfigProperty(name = "greeting.message") // <1>
     String message; // <2>
@@ -41,6 +49,20 @@ public class GreetingResource {
         return message; // <3>
     }
     // end::message[]
+
+    // tag::validation[]
+    @GET
+    @Path("/validation")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String helloValidation() {
+        StringBuilder sb = new StringBuilder();
+        for (int i=0; i<numberOfRepetitions; i++) {
+            sb.append(message);
+        }
+        return sb.toString();
+    }
+    // end::validation[]
+
     // tag::optional[]
     @GET
     @Path("/optional")
@@ -69,5 +91,17 @@ public class GreetingResource {
         return config.getValue("greeting.message", String.class); // <3>
     }
     // end::config[]
+
+    // tag::configurations[]
+    @Inject // <1>
+    GreetingConfiguration greetingConfiguration;
+
+    @GET
+    @Path("/configurations")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String helloConfigurations() {
+        return greetingConfiguration.message + greetingConfiguration.suffix;
+    }
+    // end::configurations[]
 
 }
