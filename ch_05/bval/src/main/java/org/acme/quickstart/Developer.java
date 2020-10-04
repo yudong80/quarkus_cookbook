@@ -9,6 +9,7 @@ public class Developer {
     @Size(min = 4) // <1>
     private String name;
 
+    @JvmLanguage
     @NotBlank // <2>
     private String favoriteLanguage;
     // end::validation[]
