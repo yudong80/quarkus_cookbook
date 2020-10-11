@@ -13,6 +13,4 @@ RUN chmod 775 /work /work/application \
   && chown -R 1001:root /work
 EXPOSE 8080 8443
 USER 1001
-CMD ["./application", 
-"-Dquarkus.http.host=0.0.0.0", 
-"-Djavax.net.ssl.trustStore=/work/cacerts"]
+CMD ["./application", "-Dquarkus.http.host=0.0.0.0", "-Djavax.net.ssl.trustStore=/work/cacerts"]
