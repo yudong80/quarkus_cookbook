@@ -1,0 +1,5 @@
+*
+!target/classes/keystore.jks
+!target/*-runner
+!target/*-runner.jar
+!target/lib/*
