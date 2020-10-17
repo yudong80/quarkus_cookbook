@@ -1,0 +1,8 @@
+org\acme\panache\LibraryRepository.class
+org\acme\panache\Status.class
+org\acme\panache\Library.class
+META-INF\panache-archive.marker
+org\acme\panache\LibraryService.class
+org\acme\panache\BookService.class
+org\acme\panache\Inventory.class
+org\acme\panache\Book.class
