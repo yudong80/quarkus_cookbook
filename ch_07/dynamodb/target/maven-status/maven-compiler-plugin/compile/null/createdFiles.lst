@@ -1,0 +1,4 @@
+org\acme\dynamodb\Book.class
+org\acme\dynamodb\AbstractBookService.class
+org\acme\dynamodb\BookSyncService.class
+org\acme\dynamodb\BookResource.class
