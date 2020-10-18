@@ -1,0 +1,3 @@
+org\acme\mongodb\BookResource.class
+org\acme\mongodb\BookService.class
+org\acme\mongodb\Book.class
