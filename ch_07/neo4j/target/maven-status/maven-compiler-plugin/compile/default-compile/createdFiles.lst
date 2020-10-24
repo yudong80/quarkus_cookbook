@@ -1,0 +1,3 @@
+org\acme\neo4j\Book.class
+org\acme\neo4j\BookResource.class
+org\acme\neo4j\ReactiveBookResource.class
