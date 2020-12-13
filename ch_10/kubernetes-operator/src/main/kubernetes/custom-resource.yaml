@@ -1,0 +1,6 @@
+apiVersion: acme.org/v1alpha1
+kind: Hello # <1>
+metadata:
+  name: example-hello
+spec:
+  message: Hello Alex # <2>

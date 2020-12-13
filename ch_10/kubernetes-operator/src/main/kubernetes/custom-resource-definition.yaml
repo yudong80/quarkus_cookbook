@@ -1,0 +1,15 @@
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  name: hellos.acme.org # <1>
+spec:
+  group: acme.org # <2>
+  names:
+    kind: Hello # <3>
+    listKind: HelloList # <4>
+    plural: hellos # <5>
+    singular: hello # <6>
+  scope: Namespaced # <7>
+  subresources:
+    status: {}
+  version: v1alpha1 # <8>
