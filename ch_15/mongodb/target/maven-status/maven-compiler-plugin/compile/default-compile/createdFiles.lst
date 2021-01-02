@@ -1,0 +1,5 @@
+org/acme/mongodb/BookService.class
+org/acme/mongodb/ReactiveBookResource.class
+org/acme/mongodb/Book.class
+org/acme/mongodb/BookResource.class
+org/acme/mongodb/ReactiveBookService.class

@@ -1,0 +1,7 @@
+/home/yudong/work/agit/quarkus_cookbook/ch_15/kafka-react/src/main/java/org/acme/kafka/PriceConverter.java
+/home/yudong/work/agit/quarkus_cookbook/ch_15/kafka-react/src/main/java/org/acme/kafka/CharacterReceiver.java
+/home/yudong/work/agit/quarkus_cookbook/ch_15/kafka-react/src/main/java/org/acme/kafka/BookDeserializer.java
+/home/yudong/work/agit/quarkus_cookbook/ch_15/kafka-react/src/main/java/org/acme/kafka/Book.java
+/home/yudong/work/agit/quarkus_cookbook/ch_15/kafka-react/src/main/java/org/acme/kafka/PriceGenerator.java
+/home/yudong/work/agit/quarkus_cookbook/ch_15/kafka-react/src/main/java/org/acme/kafka/PriceResource.java
+/home/yudong/work/agit/quarkus_cookbook/ch_15/kafka-react/src/main/java/org/acme/kafka/CharacterGenerator.java
