@@ -1,0 +1,78 @@
+<!-- tag::init[] -->
+{@org.acme.quickstart.Movie movie} <!--1-->
+<!DOCTYPE html>
+<html>
+<!-- end::init[] -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    
+    <title>Movie</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="text-center text-primary">{movie.name}</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <h4 class="text-center text-primary">Movie Details</h4>
+                <div class="row">
+                    <!-- tag::details[] -->
+                    <div class="col-sm-12">
+                        <dl>
+                            {#if movie.year == 0} <!--1-->
+                                <dt>Year:</dt> Not Known
+                            {#else} <!--2-->
+                                <dt>Year:</dt> {movie.year}
+                            {/if}
+                            {#if movie.genre is 'horror'} <!--3-->
+                            <dt>Genre:</dt> Buuuh
+                            {#else}
+                            <dt>Genre:</dt> {movie.genre}
+                            {/if}
+                            <dt>Director:</dt> {movie.director ?: 'Unknown'} <!--4-->
+                            <dt>Main Characters:</dt> 
+                            {#for character in movie.characters} <!--5-->
+                                {character} <!--6-->
+                                {#if hasNext} <!--7-->
+                                 -
+                                {/if}
+                            {/for}
+                            <dt>Rating:</dt>  
+                            <font color="red">
+                            {#for i in movie.stars} <!--8-->
+                                <span class="fas fa-xs fa-star"></span>
+                            {/for}
+                            </font> 
+                    <!-- end::details[] -->
+                            <!-- tag::template[] --> 
+                            ({movie.roundStars(2)}) <!--1--> 
+                            <!-- end::template[] -->
+                            <!-- tag::details[] --> 
+                        </dl>
+                    </div>
+                    <!-- end::details[] -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
