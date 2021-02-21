@@ -46,11 +46,11 @@ public class BookResource {
                              "id BIGINT AUTO_INCREMENT PRIMARY KEY, " +
                              "title TEXT NOT NULL, " +
                              "isbn VARCHAR(17) NOT NULL)";
-        client.query("DROP TABLE IF EXISTS books")
-                .flatMap(r -> client.query(booksSchema))
-                .flatMap(r -> client.query("INSERT INTO books (title, isbn) VALUES ('Quarkus Cookbook: Kubernetes Optimized Java Solutions', '978-1-492-06265-3')"))
-                .flatMap(r -> client.query("INSERT INTO books (title, isbn) VALUES ('Testing Java Microservices', '978-1-617-29289-7')"))
-                .flatMap(r -> client.query("INSERT INTO books (title, isbn) VALUES ('Mistborn', '978-0-765-35038-1')"))
+        client.query("DROP TABLE IF EXISTS books").execute()
+                .flatMap(r -> client.query(booksSchema).execute())
+                .flatMap(r -> client.query("INSERT INTO books (title, isbn) VALUES ('Quarkus Cookbook: Kubernetes Optimized Java Solutions', '978-1-492-06265-3')").execute())
+                .flatMap(r -> client.query("INSERT INTO books (title, isbn) VALUES ('Testing Java Microservices', '978-1-617-29289-7')").execute())
+                .flatMap(r -> client.query("INSERT INTO books (title, isbn) VALUES ('Mistborn', '978-0-765-35038-1')").execute())
                 .await().indefinitely();
     }
     // end::setup[]

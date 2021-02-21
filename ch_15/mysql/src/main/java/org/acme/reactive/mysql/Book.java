@@ -35,7 +35,7 @@ public class Book {
 
     public static Multi<Book> findAll(MySQLPool client) {
         return client.query("SELECT id, title, isbn " +
-                            "FROM books ORDER BY title ASC")
+                            "FROM books ORDER BY title ASC").execute()
                 .onItem().produceMulti(Multi.createFrom()::iterable)
                 .map(Book::from);
     }
@@ -43,7 +43,7 @@ public class Book {
     // tag::save[]
     public Uni<Long> save(MySQLPool client) {
         String query = "INSERT INTO books (title,isbn) VALUES (?,?)";
-        return client.preparedQuery(query, Tuple.of(title, isbn))
+        return client.preparedQuery(query).execute(Tuple.of(title, isbn))
                 .map(rowSet -> rowSet
                         .property(MySQLClient.LAST_INSERTED_ID)); // <1>
     }

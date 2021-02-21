@@ -34,7 +34,7 @@ public class Book {
 
     public static Multi<Book> findAll(PgPool client) {
         return client.query("SELECT id, title, isbn " +
-                            "FROM books ORDER BY title ASC")
+                            "FROM books ORDER BY title ASC").execute()
                 .onItem().produceMulti(Multi.createFrom()::iterable)
                 .map(Book::from);
     }
@@ -42,7 +42,7 @@ public class Book {
     // tag::delete[]
     public static Uni<Boolean> delete(PgPool client, Long id) {
         return client.preparedQuery("DELETE FROM books " +
-                                    "WHERE id = $1", Tuple.of(id))
+                                    "WHERE id = $1").execute(Tuple.of(id))
                 .map(rowSet -> rowSet.rowCount() == 1); // <1>
     }
     // end::delete[]
