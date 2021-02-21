@@ -17,7 +17,7 @@ public class GreetingResourceTest {
 
     @BeforeAll
     public static void getAccessToken() {
-        final ResponseOptions<Response> response = RestAssuredExtension.GetAccessToken("http://localhost:8180/auth/realms/quarkus/protocol/openid-connect/token",
+        final ResponseOptions<Response> response = RestAssuredExtension.getAccessToken("http://localhost:8180/auth/realms/quarkus/protocol/openid-connect/token",
                 "backend-service", "secret", "alice", "alice");
         accessToken = response.getBody().jsonPath().getString("access_token");
     }
